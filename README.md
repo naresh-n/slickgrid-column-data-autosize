@@ -16,3 +16,10 @@ Select a cell or row => Ctrl-Shift-a => for whole grid auto size
 2. Column will auto fit to max data width in the row if header width is less than data width.
 
 3. Column will auto fit to header width in the row if header width is greater than data width.
+
+
+######Using simple cell text
+https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-1-text.html
+
+######Using cell formatter
+https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-2-formatters.html
