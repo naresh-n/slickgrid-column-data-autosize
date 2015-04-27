@@ -6,7 +6,7 @@ This plug-in is for slickgrid to handle auto size columns considering header siz
 Double click on a column resize handle for auto size
 
 ######All columns auto size
-Select a cell or row => control-shift-a => for whole grid auto size
+Select a cell or row => Ctrl-Shift-a => for whole grid auto size
 
 ######How it works
 
