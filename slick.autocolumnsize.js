@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
 
     $.extend(true, window, {
         "Slick": {
@@ -9,7 +9,9 @@
     function AutoColumnSize(maxWidth) {
 
         var grid, $container, context,
-            keyCodes = {'A':65};
+            keyCodes = {
+                'A': 65
+            };
 
         function init(_grid) {
             grid = _grid;
@@ -32,7 +34,7 @@
             }
         }
 
-        function resizeAllColumns(){
+        function resizeAllColumns() {
             var elHeaders = $container.find(".slick-header-column");
             var allColumns = grid.getColumns();
             elHeaders.each(function(index, el) {
@@ -74,15 +76,15 @@
         }
 
         function getMaxColumnTextWidth(columnDef, colIndex) {
-            var texts =[];
-            var rowEl  = createRow(columnDef);
+            var texts = [];
+            var rowEl = createRow(columnDef);
             var data = grid.getData();
 
-            for(var i=0; i<data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 texts.push(data[i][columnDef.field]);
             }
 
-            var template  = getMaxTextTemplate(texts, columnDef, colIndex, data, rowEl);
+            var template = getMaxTextTemplate(texts, columnDef, colIndex, data, rowEl);
             var width = getTemplateWidth(rowEl, template);
             deleteRow(rowEl);
             return width;
@@ -91,21 +93,22 @@
         function getTemplateWidth(rowEl, template) {
             var cell = $(rowEl.find(".slick-cell"));
             cell.append(template);
-            $(cell).find("*").css("position","relative");
-            return cell.outerWidth()+1;
+            $(cell).find("*").css("position", "relative");
+            return cell.outerWidth() + 1;
         }
 
         function getMaxTextTemplate(texts, columnDef, colIndex, data, rowEl) {
-            var max = 0, maxTemplate = null;
+            var max = 0,
+                maxTemplate = null;
             var formatFun = columnDef.formatter;
             $(texts).each(function(index, text) {
                 var template;
-                if(formatFun) {
-                    template = $("<span>" + formatFun(index, colIndex ,text, columnDef, data) + "</span>");
+                if (formatFun) {
+                    template = $("<span>" + formatFun(index, colIndex, text, columnDef, data) + "</span>");
                     text = template.text() || text;
                 }
-                var length = text ? getElementWidthUsingCanvas(rowEl, text): 0;
-                if(length > max) {
+                var length = text ? getElementWidthUsingCanvas(rowEl, text) : 0;
+                if (length > max) {
                     max = length;
                     maxTemplate = template || text;
                 }
@@ -116,7 +119,9 @@
         function createRow(columnDef) {
             var rowEl = $('<div class="slick-row"> <div class="slick-cell ' + (columnDef.formatName || "") + '"></div></div>');
             rowEl.find(".slick-cell").css({
-                "visibility": "hidden", "text-overflow":"initial","white-space": "nowrap"
+                "visibility": "hidden",
+                "text-overflow": "initial",
+                "white-space": "nowrap"
             });
             var gridCanvas = $container.find(".grid-canvas");
             $(gridCanvas).append(rowEl);
@@ -127,7 +132,7 @@
             $(rowEl).remove();
         }
 
-        function getElementWidth (element) {
+        function getElementWidth(element) {
             var width, clone = element.cloneNode(true);
             clone.style.cssText = 'position: absolute; visibility: hidden;right: auto;text-overflow: initial;white-space: nowrap;';
             element.parentNode.insertBefore(clone, element);
@@ -136,8 +141,8 @@
             return width;
         }
 
-        function getElementWidthUsingCanvas (element, text) {
-            context.font = element.css("font-size")+ " " + element.css("font-family");
+        function getElementWidthUsingCanvas(element, text) {
+            context.font = element.css("font-size") + " " + element.css("font-family");
             var metrics = context.measureText(text);
             return metrics.width;
         }
