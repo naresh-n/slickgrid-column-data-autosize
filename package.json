@@ -6,7 +6,7 @@
   "main": null,
   "repository": {
     "type": "git",
-    "url": "https://github.com/naresh-n/slickgrid-column-data-autosize"
+    "url": "https://github.com/naresh-n/slickgrid-column-data-autosize.git"
   },
   "keywords": ["slickgrid"],
   "dependencies": { },
