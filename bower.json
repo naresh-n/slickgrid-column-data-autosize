@@ -16,7 +16,7 @@
     "lib",
     "src",
     ".gitignore",
-    "Gruntfile.js",
+    "gruntfile.js",
     "package.json",
     "README.md"
   ]
