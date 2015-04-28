@@ -23,7 +23,7 @@ Select a cell or row => Ctrl-Shift-a => for whole grid auto size
 
 
 ######Using simple cell text
-https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-1-text.html
+https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-text-1.html
 
 ######Using cell formatter
-https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-2-formatters.html
+https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-formatter-2.html
