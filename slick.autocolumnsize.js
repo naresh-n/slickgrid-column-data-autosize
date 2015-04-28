@@ -117,7 +117,7 @@
         }
 
         function createRow(columnDef) {
-            var rowEl = $('<div class="slick-row"> <div class="slick-cell ' + (columnDef.formatName || "") + '"></div></div>');
+            var rowEl = $('<div class="slick-row"><div class="slick-cell"></div></div>');
             rowEl.find(".slick-cell").css({
                 "visibility": "hidden",
                 "text-overflow": "initial",
