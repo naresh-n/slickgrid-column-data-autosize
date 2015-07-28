@@ -1,6 +1,6 @@
 {
   "name": "slick.autocolumnsize",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Naresh Nagabhushanam <nnaresh@outlook.com>",
   "description": "A plugin for slick grid auto column size",
   "main": null,
