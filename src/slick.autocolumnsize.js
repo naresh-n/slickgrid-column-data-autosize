@@ -82,11 +82,9 @@
             if (Slick.Data && data instanceof Slick.Data.DataView) {
                 data = data.getItems();
             }
-
             for (var i = 0; i < data.length; i++) {
                 texts.push(data[i][columnDef.field]);
             }
-
             var template = getMaxTextTemplate(texts, columnDef, colIndex, data, rowEl);
             var width = getTemplateWidth(rowEl, template);
             deleteRow(rowEl);
@@ -97,7 +95,6 @@
             var cell = $(rowEl.find(".slick-cell"));
             cell.append(template);
             $(cell).find("*").css("position", "relative");
-
             return cell.outerWidth() + 1;
         }
 
