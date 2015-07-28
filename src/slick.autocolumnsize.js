@@ -97,6 +97,7 @@
             var cell = $(rowEl.find(".slick-cell"));
             cell.append(template);
             $(cell).find("*").css("position", "relative");
+
             return cell.outerWidth() + 1;
         }
 
