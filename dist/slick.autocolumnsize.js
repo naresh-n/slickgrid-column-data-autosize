@@ -28,7 +28,7 @@
             $container.off();
         }
 
-        function handleControlKeys() {
+        function handleControlKeys(event) {
             if (event.ctrlKey && event.shiftKey && event.keyCode === keyCodes.A) {
                 resizeAllColumns();
             }
