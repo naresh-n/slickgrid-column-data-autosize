@@ -3,14 +3,14 @@
 This plug-in is for slickgrid to handle auto size columns based on the header size, data size, cell-formats and max data length.
 
 ######Single column auto size
-Double click on a column resize handle for auto size
+Double click on a column resize handle.
 
 ######All columns auto size
-Select a cell or row => Ctrl-Shift-a => for whole grid auto size
+Select a cell or row => Ctrl-Shift-a
 
 ######How it works
 
-1. Column will auto fit to provided max width if cell data width is more than given max width.
+1. Column will auto fit to given/default max width if cell data width is more than given max width.
    Slick.AutoColumnSize(100) or default :200
 
     OR
