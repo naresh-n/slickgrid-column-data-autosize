@@ -21,6 +21,20 @@ Select a cell or row => Ctrl-Shift-a
 
 3. Column will auto fit to header width if header width is greater than data width.
 
+######Browser
+    <script src="../src/slick.autocolumnsize.js"></script>
+
+######Bower
+    npm install slickgrid-column-data-autosize
+    
+######Usage
+      
+      grid = new Slick.Grid("#myGrid", data, columns, options);
+      grid.registerPlugin( new Slick.AutoColumnSize());
+      [OR]
+      grid.registerPlugin( new Slick.AutoColumnSize(200));
+
+
 
 ######Using simple cell text
 https://cdn.rawgit.com/naresh-n/slickgrid-column-data-autosize/master/examples/example-1.html
