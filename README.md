@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/naresh-n/slickgrid-column-data-autosize.svg?branch=master)](https://travis-ci.org/naresh-n/slickgrid-column-data-autosize)
+
 ### slickgrid-column-data-autosize
 
 This plug-in is for slickgrid to handle auto size columns based on the header size, data size, cell-formats and max data length.
