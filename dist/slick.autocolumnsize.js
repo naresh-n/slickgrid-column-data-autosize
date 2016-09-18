@@ -105,7 +105,7 @@
             $(texts).each(function(index, text) {
                 var template;
                 if (formatFun) {
-                    template = $("<span>" + formatFun(index, colIndex, text, columnDef, data) + "</span>");
+                    template = $("<span>" + formatFun(index, colIndex, text, columnDef, data[index]) + "</span>");
                     text = template.text() || text;
                 }
                 var length = text ? getElementWidthUsingCanvas(rowEl, text) : 0;
