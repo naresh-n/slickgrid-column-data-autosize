@@ -47,7 +47,7 @@
                 column.width = autoSizeWidth;
             });
             grid.setColumns(allColumns);
-            grid.onColumnsResized.notify();
+            grid.onColumnsResized.notify({grid: grid});
         }
 
         function reSizeColumn(e) {
