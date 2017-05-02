@@ -12,6 +12,8 @@
             keyCodes = {
                 'A': 65
             };
+        
+        var viewportRowDatas = [];
 
         function init(_grid) {
             grid = _grid;
@@ -22,6 +24,11 @@
             $container.keydown(handleControlKeys);
 
             context = document.createElement("canvas").getContext("2d");
+            
+            // This ensures the columns autoresize on initial load
+            // This idea from stackoverflow
+            // http://stackoverflow.com/questions/6794656/how-do-i-autosize-the-column-in-slickgrid
+            $container.ready(resizeAllColumns);
         }
 
         function destroy() {
@@ -33,8 +40,31 @@
                 resizeAllColumns();
             }
         }
+        
+        function pickViewportRowDatas(){
+        	var viewportRowIndexes = [];
+            var viewRows = $container.find(".slick-row");
+			if (viewRows.size() > 0) {
+				var rowHeight = viewRows.children(0).outerHeight();
+				viewRows.each(function(i, item) {
+					viewportRowIndexes.push($(item).position().top / rowHeight);
+				});
+			}
+			
+			var data = grid.getData();
+            if (Slick.Data && data instanceof Slick.Data.DataView) {
+                data = data.getItems();
+            }
+            
+            viewportRowDatas = [];
+            for (var i in viewportRowIndexes) {
+            	viewportRowDatas.push(data[i]);
+			}
+        }
 
         function resizeAllColumns() {
+            pickViewportRowDatas();
+            
             var elHeaders = $container.find(".slick-header-column");
             var allColumns = grid.getColumns();
             elHeaders.each(function(index, el) {
@@ -51,6 +81,8 @@
         }
 
         function reSizeColumn(e) {
+            pickViewportRowDatas();
+            
             var headerEl = $(e.currentTarget).closest('.slick-header-column');
             var columnDef = headerEl.data('column');
 
@@ -78,10 +110,7 @@
         function getMaxColumnTextWidth(columnDef, colIndex) {
             var texts = [];
             var rowEl = createRow(columnDef);
-            var data = grid.getData();
-            if (Slick.Data && data instanceof Slick.Data.DataView) {
-                data = data.getItems();
-            }
+            var data = viewportRowDatas;
             for (var i = 0; i < data.length; i++) {
                 texts.push(data[i][columnDef.field]);
             }
@@ -150,6 +179,7 @@
 
         return {
             init: init,
+            resizeAllColumns: resizeAllColumns,
             destroy: destroy
         };
     }
