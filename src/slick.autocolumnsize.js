@@ -79,8 +79,10 @@
             var texts = [];
             var rowEl = createRow(columnDef);
             var data = grid.getData();
-            if (Slick.Data && data instanceof Slick.Data.DataView) {
-                data = data.getItems();
+            if (typeof(Slick.Data.DataView) == "function") {
+                if (Slick.Data && data instanceof Slick.Data.DataView) {
+                    data = data.getItems();
+                }
             }
             for (var i = 0; i < data.length; i++) {
                 texts.push(data[i][columnDef.field]);
