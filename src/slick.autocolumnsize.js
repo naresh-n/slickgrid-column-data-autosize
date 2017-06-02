@@ -85,7 +85,9 @@
                 }
             }
             for (var i = 0; i < data.length; i++) {
-                texts.push(data[i][columnDef.field]);
+                if (data[i]) {
+                    texts.push(data[i][columnDef.field]);
+                }
             }
             var template = getMaxTextTemplate(texts, columnDef, colIndex, data, rowEl);
             var width = getTemplateWidth(rowEl, template);
